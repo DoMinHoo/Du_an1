@@ -61,6 +61,12 @@
                   <p>Đơn Hàng</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="?act=admin/comment" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bình Luận</p>
+                </a>
+              </li>
             </ul>
           </li>
           </li>

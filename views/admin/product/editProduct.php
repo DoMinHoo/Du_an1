@@ -23,7 +23,7 @@
     <div class="container-fluid" >
         <div class="row">
             <div class="col-12" >
-                <form action="?act=admin/product/nextedit&id=<?=$dataOneProduct['id']?>" method="POST" >
+                <form action="?act=admin/product/nextedit&id=<?=$dataOneProduct['id']?>" method="POST" enctype="multipart/form-data">
                 <!-- Nhap Du Lieu -->
                 <div class="form-group">
                     <label for="name">Name</label>

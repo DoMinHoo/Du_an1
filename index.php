@@ -11,16 +11,22 @@ require_once './controllers/user/userController.php';
 require_once './controllers/admin/AdminDonHangController.php';
 require_once './controllers/admin/userController.php';
 require_once './controllers/admin/productController.php';
+require_once './controllers/admin/commentController.php';
 
 //models
 require_once './models/admin/userModels.php';
 require_once './models/admin/donHangModel.php';
 require_once './models/admin/productModel.php';
+require_once './models/admin/commentMode.php';
+
+
+
 
 $User = new HomeUserController();
 $Admin = new HomeAdminController;
 $AdminDonHang = new AdminDonHangController();
 $AdminProduct = new ProductController();
+$AdminComment = new CommentController();
 
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 
@@ -37,25 +43,32 @@ $response = match ($act) {
     'admin/user' => $Admin->UserAdmin(),
 
 
+    // quản lý đơn hàng
+    // 'admin/donHang' => $AdminDonHang->getAllDonHang(),
+    // 'admin/donHang/detail' => $AdminDonHang->detailDonHang(),
+    // 'admin/donHang/edit' => $AdminDonHang->editDonHang(),
+    // 'admin/donHang/editDonHang' => $AdminDonHang->postDonHang(),
     'admin/donHang' => $AdminDonHang->getAllDonHang(),
-    'admin/donHang/detail' => $AdminDonHang->detailDonHang(),
     'admin/donHang/edit' => $AdminDonHang->editDonHang(),
     'admin/donHang/editDonHang' => $AdminDonHang->postDonHang(),
-    
 
     
-
+    // quản lý người dùng
     'admin/user/add' =>$Admin->insertUser(),
     'admin/user/edit' => $Admin->editUser(),
     'admin/user/nextedit' => $Admin->nextedit(),
     'admin/user/delete' => $Admin->DeletetUser(),
 
-
+    // quản lý sản phẩm
     'admin/product' =>$AdminProduct->getAllProduct(),
     'admin/product/edit' =>$AdminProduct->editProduct(),
     'admin/product/nextedit' =>$AdminProduct->nexteditProduct(),
     'admin/product/delete' =>$AdminProduct->DeleteProduct(),
-    'admin/product/add' =>$AdminProduct->insertProduct()
+    'admin/product/add' =>$AdminProduct->insertProduct(),
+
+
+    // quản lý bình luận
+    'admin/comment' => $AdminComment->getAllComment(),  
 };
 
 

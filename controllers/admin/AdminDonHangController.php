@@ -15,7 +15,7 @@ class AdminDonHangController
     {   
         $listDonHang = $this->donHang->getAllDonHang();
         if ($listDonHang) {
-            require_once './views/admin/DonHang/listDonHang.php';
+            require_once './views/admin/donHang/listDonHang.php';
         }
     }
  
@@ -26,10 +26,9 @@ class AdminDonHangController
 
         $detail = $this->donHang->detailDonHang($id);
         // var_dump($detail); die;
-        // if($detail){
-        require_once './views/admin/DonHang/editDonHang.php';
-        require_once './views/admin/DonHang/detailDonHang.php';
-        // }
+        if($detail){
+        require_once 'views/admin/donHang/detailDonHang.php';
+        }
     }
 
     public function editDonHang()
@@ -39,7 +38,8 @@ class AdminDonHangController
             // $dataUser = $this->user->getAllUser();
             // var_dump($dataUser); die();
             $edit = $this->donHang->getOneDonHang($id);
-            require_once './views/admin/DonHang/editDonHang.php';
+            require_once 'views/admin/donHang/editDonHang.php';
+            print_r($id);die();
         }
     }
     public function postDonHang()
@@ -71,4 +71,5 @@ class AdminDonHangController
             header("Location: ?act=admin/donHang&message=error.");
         }
     }
+
 }
