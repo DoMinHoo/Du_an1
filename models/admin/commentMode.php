@@ -21,6 +21,9 @@ class AdminCommentModels{
         , `content` = '$content', `time_comment` = '$time_comment', `evaluate` = '$evaluate' WHERE id_cmt = $id_cmt";
         return $this->db->insert($sql);
     }
+    public function detailComment($id){
+        $sql = "SELECT * FROM comment INNER JOIN ";
+    }
 
 }
 ?>

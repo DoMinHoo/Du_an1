@@ -31,7 +31,8 @@ class AdminProductModels{
     public function editProduct($id,$name,$price,$img,$description,$id_categories,$status){
         $sql ="UPDATE `product` SET `name`='$name',`price`='$price',
         `img`='$img',`description`='$description',`id_categories`='$id_categories',
-        `status`='$status' WHERE id=$id ";
+        `status`='$status' WHERE id=$id;
+        SELECT * FROM product INNER JOIN categories WHERE  ";
         return $this->db->insert($sql);
         
     }

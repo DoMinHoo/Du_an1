@@ -49,7 +49,7 @@ $response = match ($act) {
     // 'admin/donHang/edit' => $AdminDonHang->editDonHang(),
     // 'admin/donHang/editDonHang' => $AdminDonHang->postDonHang(),
     'admin/donHang' => $AdminDonHang->getAllDonHang(),
-    'admin/donHang/edit' => $AdminDonHang->editDonHang(),
+    'admin/DonHang/edit' => $AdminDonHang->editDonHang(),
     'admin/donHang/editDonHang' => $AdminDonHang->postDonHang(),
 
     
