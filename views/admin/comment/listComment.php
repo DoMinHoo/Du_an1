@@ -50,7 +50,7 @@
                                                 <td><?= $value['content'] ?></td>
                                                 <td><?= $value['time_comment'] ?></td>
                                                 <td><?= $value['evaluate']?></td>
-                                                <td></td>
+                                               
                                             </tr>
                                         <?php } ?>
                                     </tbody>

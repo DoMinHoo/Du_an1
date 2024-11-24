@@ -7,7 +7,7 @@ class AdminProductModels{
     }
 
     public function getAllProduct(){
-        $sql = "SELECT * FROM product order by id desc";
+        $sql = "SELECT p.*, cate_name FROM product p INNER JOIN categories c ON p.id_categories = c.id";
         return $this->db->getAll($sql);
     }
 
@@ -31,10 +31,14 @@ class AdminProductModels{
     public function editProduct($id,$name,$price,$img,$description,$id_categories,$status){
         $sql ="UPDATE `product` SET `name`='$name',`price`='$price',
         `img`='$img',`description`='$description',`id_categories`='$id_categories',
-        `status`='$status' WHERE id=$id;
-        SELECT * FROM product INNER JOIN categories WHERE  ";
+        `status`='$status' WHERE id=$id;";
         return $this->db->insert($sql);
-        
+    }
+    public function detailProduct($id_categories){
+        $sql = "SELECT p.*, c.name 'cate_name' FROM product p
+                INNER JOIN categories c ON product.id_categories = categories.name;
+                WHERE product.id_categories = $id_categories;";
+        return $this->db->getOne($sql);
     }
 
 }

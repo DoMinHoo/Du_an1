@@ -71,5 +71,5 @@ class AdminDonHangController
             header("Location: ?act=admin/donHang&message=error.");
         }
     }
-
 }
+

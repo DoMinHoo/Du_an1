@@ -12,12 +12,14 @@ require_once './controllers/admin/AdminDonHangController.php';
 require_once './controllers/admin/userController.php';
 require_once './controllers/admin/productController.php';
 require_once './controllers/admin/commentController.php';
+require_once './controllers/admin/categoriesController.php';
 
 //models
 require_once './models/admin/userModels.php';
 require_once './models/admin/donHangModel.php';
 require_once './models/admin/productModel.php';
 require_once './models/admin/commentMode.php';
+require_once './models/admin/categoriesMode.php';
 
 
 
@@ -27,6 +29,7 @@ $Admin = new HomeAdminController;
 $AdminDonHang = new AdminDonHangController();
 $AdminProduct = new ProductController();
 $AdminComment = new CommentController();
+$AdminCategory = new CategoryController();
 
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 
@@ -50,7 +53,7 @@ $response = match ($act) {
     // 'admin/donHang/editDonHang' => $AdminDonHang->postDonHang(),
     'admin/donHang' => $AdminDonHang->getAllDonHang(),
     'admin/DonHang/edit' => $AdminDonHang->editDonHang(),
-    'admin/donHang/editDonHang' => $AdminDonHang->postDonHang(),
+    'admin/DonHang/editDonHang' => $AdminDonHang->postDonHang(),
 
     
     // quản lý người dùng
@@ -69,6 +72,13 @@ $response = match ($act) {
 
     // quản lý bình luận
     'admin/comment' => $AdminComment->getAllComment(),  
+
+    // quản lý danh mục
+    'admin/category' =>$AdminCategory->getAllCategory(),
+    'admin/category/edit' =>$AdminCategory->editCategory(),
+    'admin/category/nextedit' =>$AdminCategory->nexteditCategory(),
+    'admin/category/delete' =>$AdminCategory->DeleteCategory(),
+    'admin/category/add' =>$AdminCategory->insertCategory()
 };
 
 
