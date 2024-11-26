@@ -29,7 +29,7 @@ class AdminCategoryModels{
     }
 
     public function editCategory($id,$cate_name,$status){
-        $sql ="UPDATE `categories` SET `name`='$cate_name',`status`='$status' WHERE id=$id ";
+        $sql ="UPDATE `categories` SET `cate_name`='$cate_name',`status`='$status' WHERE id=$id ";
         return $this->db->insert($sql);
         
     }

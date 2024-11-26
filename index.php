@@ -4,9 +4,14 @@
 require_once './commons/env.php';
 require_once './commons/database.php';
 //user
+//controller
 require_once './controllers/user/userController.php';
+//models
+require_once './models/user/productHomeModel.php';
 
 
+
+//Admin
 //controller
 require_once './controllers/admin/AdminDonHangController.php';
 require_once './controllers/admin/userController.php';
@@ -30,6 +35,9 @@ $AdminDonHang = new AdminDonHangController();
 $AdminProduct = new ProductController();
 $AdminComment = new CommentController();
 $AdminCategory = new CategoryController();
+
+
+
 
 // Để bảo bảo tính chất chỉ gọi 1 hàm Controller để xử lý request thì mình sử dụng match
 

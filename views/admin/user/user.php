@@ -62,6 +62,7 @@
                         <td><?= $value['tel'] ?></td>
                         <td><?= $value['ip_address'] ?></td>
                         <td><?= $value['role'] == 1 ? 'Admin' : 'Thành viên' ?></td>
+                        <td><?= $value['status'] == 0 ? 'active' : 'locked'; ?> </td>
                         <td><?= $value['create_at'] ?></td>
                         <td><?= $value['update_at'] ?></td>
                         <td>

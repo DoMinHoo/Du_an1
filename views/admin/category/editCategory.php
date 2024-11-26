@@ -26,7 +26,7 @@
                 <form action="?act=admin/category/nextedit&id=<?=$dataOneCategory['id']?>" method="POST" >
                 <!-- Nhap Du Lieu -->
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="cate_name">Category Name</label>
                     <input type="text" class="form-control" name="cate_name" value="<?php echo $dataOneCategory['cate_name']; ?>">
                 </div>
                 <div class="form-group">

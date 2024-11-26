@@ -19,7 +19,7 @@ class Database{
     public function getAll($sql){
         $stsm = $this->conn->prepare($sql);
         $stsm->execute();
-        $result = $stsm->fetCHAll();
+        $result = $stsm->fetchAll();
         return $result;
     }
     public function getOne($sql){

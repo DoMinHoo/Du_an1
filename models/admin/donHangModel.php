@@ -17,9 +17,8 @@ class DonHangModel
 
     public function detailDonHang($id)
     {
-        $sql = "SELECT * FROM orders
-                INNER JOIN account ON orders.user_id = account.id
-                WHERE orders.id = $id;"
+        $sql = "SELECT ord.*, acc FROM orders ord
+                INNER JOIN account acc ON ord.user_id = acc.id"
                 ;
         // $sql = "SELECT * FROM orders WHERE id=$id";
         return $this->db->getOne($sql);
