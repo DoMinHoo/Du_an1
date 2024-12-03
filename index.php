@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Require file Common
 require_once './commons/env.php';
@@ -6,8 +6,11 @@ require_once './commons/database.php';
 //user
 //controller
 require_once './controllers/user/userController.php';
+require_once './controllers/user/userAccountController.php';
+require_once './controllers/user/cartController.php';
 //models
 require_once './models/user/productHomeModel.php';
+require_once './models/user/userModel.php';
 
 
 
@@ -30,6 +33,8 @@ require_once './models/admin/categoriesMode.php';
 
 
 $User = new HomeUserController();
+$UserAccount = new UserAccountController;
+$UserCart = new CartController();
 $Admin = new HomeAdminController;
 $AdminDonHang = new AdminDonHangController();
 $AdminProduct = new ProductController();
@@ -50,6 +55,11 @@ $response = match ($act) {
     'intro' => $User->homeIntro(),
     'news' => $User->homeNew(),
     'login' => $User->homeLogin(),
+    'category' => $User->homeProduct(),
+    'detail' => $User->productDetail(),
+    'register' => $UserAccount->register(),
+    'add-cart' => $UserCart->addToCart(),
+
     // Quản trị viên
     'admin/user' => $Admin->UserAdmin(),
 
@@ -63,32 +73,29 @@ $response = match ($act) {
     'admin/DonHang/edit' => $AdminDonHang->editDonHang(),
     'admin/DonHang/editDonHang' => $AdminDonHang->postDonHang(),
 
-    
+
     // quản lý người dùng
-    'admin/user/add' =>$Admin->insertUser(),
+    'admin/user/add' => $Admin->insertUser(),
     'admin/user/edit' => $Admin->editUser(),
     'admin/user/nextedit' => $Admin->nextedit(),
     'admin/user/delete' => $Admin->DeletetUser(),
 
     // quản lý sản phẩm
-    'admin/product' =>$AdminProduct->getAllProduct(),
-    'admin/product/edit' =>$AdminProduct->editProduct(),
-    'admin/product/nextedit' =>$AdminProduct->nexteditProduct(),
-    'admin/product/delete' =>$AdminProduct->DeleteProduct(),
-    'admin/product/add' =>$AdminProduct->insertProduct(),
+    'admin/product' => $AdminProduct->getAllProduct(),
+    'admin/product/edit' => $AdminProduct->editProduct(),
+    'admin/product/nextedit' => $AdminProduct->nexteditProduct(),
+    'admin/product/delete' => $AdminProduct->DeleteProduct(),
+    'admin/product/add' => $AdminProduct->insertProduct(),
 
 
     // quản lý bình luận
-    'admin/comment' => $AdminComment->getAllComment(),  
+    'admin/comment' => $AdminComment->getAllComment(),
 
     // quản lý danh mục
-    'admin/category' =>$AdminCategory->getAllCategory(),
-    'admin/category/edit' =>$AdminCategory->editCategory(),
-    'admin/category/nextedit' =>$AdminCategory->nexteditCategory(),
-    'admin/category/delete' =>$AdminCategory->DeleteCategory(),
-    'admin/category/add' =>$AdminCategory->insertCategory()
+    'admin/category' => $AdminCategory->getAllCategory(),
+    'admin/category/edit' => $AdminCategory->editCategory(),
+    'admin/category/nextedit' => $AdminCategory->nexteditCategory(),
+    'admin/category/delete' => $AdminCategory->DeleteCategory(),
+    'admin/category/add' => $AdminCategory->insertCategory(),
+    // default => $User->homeIntro(),
 };
-
-
-
-

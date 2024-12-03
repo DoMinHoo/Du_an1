@@ -47,7 +47,7 @@
     crossorigin="anonymous"></script>
 </head>
 <style>
-  
+
 </style>
 
 <body style="background-color: rgb(248, 242, 236);">
@@ -240,7 +240,7 @@
       </li>
     </ul>
   </div>
- <header class="header">
+  <header class="header">
     <div class="container">
       <div class="top-link clearfix hidden-sm hidden-xs">
         <div class="row">
@@ -253,15 +253,24 @@
           </div>
           <div class="col-6 login_link">
             <ul class="header_link right m-auto">
-              <li>
-                <a href="./Login.html"><i class="fas fa-sign-in-alt mr-3"></i>Đăng nhập</a>
-              </li>
-              <li>
-                <a href="./registration.html"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Đăng kí</a>
-              </li>
-              <li>
-                <a href="?act=admin/user"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>admin User</a>
-              </li>
+              <?php if (isset($_SESSION['user'])) : ?>
+                <li>
+                  <a href="./Login.html"><i class="fas fa-sign-in-alt mr-3"></i>Thoát</a>
+                </li>
+                <li>
+                  <a href="?act=admin/user"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Thông tin</a>
+                </li>
+              <?php else : ?>
+                <li>
+                  <a href="index.php?act=login"><i class="fas fa-sign-in-alt mr-3"></i>Đăng nhập</a>
+                </li>
+                <li>
+                  <a href="index.php?act=register"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Đăng kí</a>
+                </li>
+                <li>
+                  <a href="?act=admin/user"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Thông tin</a>
+                </li>
+              <?php endif ?>
             </ul>
             <!-- <ul class="nav nav__first right">
                 <li class="nav-item nav-item__first nav-item__first-user">
@@ -342,11 +351,12 @@
                   <li class="level1">
                     <a class="hmega" href="#">Tất cả sản phẩm</a>
                     <ul class="level1">
-                        <li class="level2"><a href="">Bóng đá</a></li>
-                        <li class="level2"><a href="">Bóng đá</a></li>
-                        <li class="level2"><a href="">Bóng đá</a></li>
-                        <li class="level2"><a href="">Bóng đá</a></li>
-                      </ul>
+                      <?php foreach ($categories as $category): ?>
+                        <li class="level2">
+                          <a href="index.php?act=category&id=<?= $category['id'] ?>"><?= $category['cate_name'] ?></a>
+                        </li>
+                      <?php endforeach; ?>
+                    </ul>
                   </li>
                 </ul>
                 <div class="col-4">

@@ -1,14 +1,13 @@
 <!-- Header -->
-<?php include '../DuAn1/views/user/layout/header.php';?>
+<?php include './views/user/layout/header.php'; ?>
 <!-- End Header -->
-<!-- Slider -->
-<?php include './views/user/layout/slider.php';?>
-<!-- End Slider -->
- <!-- login form -->
-<body>
-  
 
- <div class="container">
+<!-- login form -->
+
+<body>
+
+
+  <div class="container">
     <div class="login__form">
       <div class="row">
         <div class="col-sm-12 col-lg-6">
@@ -74,7 +73,7 @@
     </div>
   </div>
   <!-- end login form -->
-<?php include './views/user/layout/footer.php';?>
+  <?php include './views/user/layout/footer.php'; ?>
 </body>
 <script src="./assets/js/validator.js"></script>
 <script src="./assets/js/main.js"></script>
@@ -95,7 +94,7 @@
       //   return document.querySelector('#form-1 #password').value;
       // }, 'Mật khẩu nhập lại không chính xác')
     ],
-    onSubmit: function (data) {
+    onSubmit: function(data) {
       // call api
       console.log(data);
     }
@@ -104,6 +103,7 @@
 <script>
   const pass_field = document.querySelector('#password');
   const show_btn = document.querySelector('.fa-eye')
+
   function myFunction() {
     if (pass_field.type === "password") {
       pass_field.type = "text";
@@ -113,9 +113,9 @@
       show_btn.classList.remove("hide");
     }
   }
-      // show_btn.addEventListener("click",function(){
+  // show_btn.addEventListener("click",function(){
 
-      // });
+  // });
 </script>
 
 </html>

@@ -1,10 +1,12 @@
 <?php
 
-class Database{
+class Database
+{
     public $conn;
-    public function __construct(){
+    public function __construct()
+    {
         $servername = DB_HOST;
-        $dbname= DB_NAME;
+        $dbname = DB_NAME;
         $username = DB_USERNAME;
         $password = DB_PASSWORD;
         try {
@@ -12,24 +14,32 @@ class Database{
             // set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             // echo "Connected successfully";
-          } catch(PDOException $e) {
+        } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
-          }
+        }
     }
-    public function getAll($sql){
+    public function getAll($sql)
+    {
         $stsm = $this->conn->prepare($sql);
         $stsm->execute();
         $result = $stsm->fetchAll();
         return $result;
     }
-    public function getOne($sql){
+    public function getOne($sql)
+    {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetch();
         return $result;
     }
 
-    public function insert($sql){
+    public function insert($sql)
+    {
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+    }
+    public function lastInsertId($sql)
+    {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
     }
@@ -39,7 +49,8 @@ class Database{
         return date("d-m-y", strtotime($date));
     }
 
-    public function __destruct(){
+    public function __destruct()
+    {
         $this->conn = null;
     }
 }

@@ -30,7 +30,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title"> Danh Sách Sản Phẩm </h3>
-                
+
                             </div>
                             <a class="btn btn-success mb-2" href="?act=admin/product/add" data-toggle="modal" data-target="#addModal">Thêm Sản Phẩm</a>
 
@@ -41,7 +41,8 @@
                                         <tr>
                                             <th>id</th>
                                             <th>name</th>
-                                            <th>price</th>  
+                                            <th>price</th>
+                                            <th>quantity</th>
                                             <th>img</th>
                                             <th>description</th>
                                             <th>id_categories</th>
@@ -54,7 +55,8 @@
                                                 <td><?= $value['id'] ?></td>
                                                 <td><?= $value['name'] ?></td>
                                                 <td><?= $value['price'] ?></td>
-                                                <td><img src="<?= 'uploads/' . $value['img'] ?>"  style="width:200px; margin:10px;"></td>
+                                                <td><?= $value['quantity'] ?></td>
+                                                <td><img src="<?= 'uploads/' . $value['img'] ?>" style="width:200px; margin:10px;"></td>
                                                 <td><?= $value['description'] ?></td>
                                                 <td><?= $value['cate_name'] ?></td>
                                                 <td><?= $value['status'] == 0 ? 'Hoạt Động' : 'Không Hoạt Động'; ?> </td>
@@ -69,7 +71,7 @@
                             </div>
                         </div>
 
-                        
+
                         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -93,6 +95,10 @@
                                                 <input type="number" class="form-control" name="price">
                                             </div>
                                             <div class="form-group">
+                                                <label for="quantity">quantity</label>
+                                                <input type="number" class="form-control" name="quantity">
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="img">Img</label>
                                                 <input type="file" class="form-control" name="img">
                                             </div>
@@ -104,7 +110,7 @@
                                                 <label for="id_categories">Id_categories</label>
                                                 <input type="number" class="form-control" name="id_categories">
                                             </div>
-                                          
+
                                             <!-- Thêm các trường khác ở đây -->
                                             <button type="submit" name="addProduct" class="btn btn-success">Thêm</button>
                                         </form>
