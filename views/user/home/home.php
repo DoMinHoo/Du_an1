@@ -80,7 +80,7 @@
         <div class="row">
           <?php foreach ($listHoodies as $hoddie) : ?>
             <div class="col-lg-3 col-md-6 col-sm-12 mb-20">
-              <a href="./ProductDetail.html" class="product__new-item">
+              <a href="index.php?act=detail&id=<?= $hoddie['id'] ?>" class="product__new-item">
                 <div class="card" style="width: 100%">
                   <div>
                     <img class="card-img-top" src="<?= 'uploads/' . $hoddie['img'] ?>" alt="Card image cap">
@@ -187,7 +187,7 @@
         <div class="row">
           <?php foreach ($listJackets as $jacket) : ?>
             <div class="col-lg-3 col-md-6 col-sm-12 mb-20">
-              <a href="./ProductDetail.html" class="product__new-item">
+              <a href="index.php?act=detail&id=<?= $jacket['id'] ?>" class="product__new-item">
                 <div class="card" style="width: 100%">
                   <div>
                     <img class="card-img-top" src="<?= 'uploads/' . $jacket['img'] ?>" alt="Card image cap">
@@ -235,67 +235,7 @@
       </div>
     </div>
   </div>
-  <div class="shoesnews">
-    <div class="container">
-      <h3 class="shoesnews__title">Tin tức</h3>
-      <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 mb-20">
-          <a href="./newDetail.html" class="product__new-item">
-            <div class="card" style="width: 100%">
-              <img class="card-img-top" src="./views/user/assets/img/product/new2.jpg" alt="Card image cap" height="230px">
-              <div class="card-body">
-                <h5 class="card-title description title-news">
-                  Tin tức về giày puma
-                </h5>
-                <p class="card-text description" style="font-weight: 400;">Trong phạm vi bài viết ngày hôm nay, hãy cùng Thanh Hùng Futsal khám phá mẫu giày
-                  đá bóng độc nhất vô nhị được nhà Swoosh thửa riêng cho cậu bé vàng của xứ sở Lục Lăng nhé! </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 mb-20">
-          <a href="./newDetail.html" class="product__new-item">
-            <div class="card" style="width: 100%">
-              <img class="card-img-top" src="./views/user/assets/img/product/new1.jpg" alt="Card image cap" height="230px">
-              <div class="card-body">
-                <h5 class="card-title description title-news">
-                  Người sáng lập đế chế puma
-                </h5>
-                <p class="card-text description" style="font-weight: 400;">"PUMA ra mắt KING TOP DASSLER phiên bản giới hạn
-                  20/11/2021
-                  Nhằm tôn vinh những di sản mà Rudolph Dassler, người sáng lập Puma để lại, mới đây hãng thể thao nước Đức đã cho ra đời phiên bản Puma King Top Dassler
-                  với chỉ giới hạn 100 đôi trên toàn thế giới.
-                  Đôi giày đá banh được thiết kế theo phong cách đơn giản, đúng với tinh thần của dòng sản phẩm Puma King
-                  . Upper là chất liệu da Kangaroo cao cấp với tone màu trắng chủ đạo lấy ý tưởng từ những bộ
-                  quần áo sạch sẽ mà cậu bé Dassler đã giặt thuê từ khi còn nhỏ,
-                  thông qua đó cũng xây dựng lên tinh thần kinh doanh và ý chí khởi nghiệp từ sớm của cậu.</p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 mb-20">
-          <a href="./newDetail.html" class="product__new-item">
-            <div class="card" style="width: 100%">
-              <img class="card-img-top" src="./views/user/assets/img/product/new3.jpg" alt="Card image cap" height="230px">
-              <div class="card-body">
-                <h5 class="card-title description title-news">
-                  Thông tin bên lề Uero
-                </h5>
-                <p class="card-text description" style="font-weight: 400;">"Bóng đá đã trở lại", câu nói tưởng chừng bình thường nhưng lại vô cùng ý nghĩa trong thời điểm hiện tại, khi mà chúng ta đang phải sống chung với đại dịch Covid-19.
-                  Các sân vận động chật kín cổ động viên với các tràng vỗ tay,
-                  tiếng cổ vũ cũng là một hình ảnh đánh dấu chiến thắng của nhân loại trước Covid-19.
-                  Bên cạnh các trận đấu bóng đá đỉnh cao đang diễn ra khắp các sân cỏ trên toàn thế giới,
-                  thì các ông lớn như Nike, adidas hay Puma, v.v...</p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="shoesnews__all">
-        <a href="./Product.html" class="shoesnews__all-tittle">Xem tất cả</a> <i class="fi-rs-angle-right"></i>
-      </div>
-    </div>
-  </div>
+
 </div>
 <!-- footer -->
 <?php include './views/user/layout/footer.php'; ?>

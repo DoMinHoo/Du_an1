@@ -5,15 +5,20 @@
 <!-- login form -->
 
 <body>
-
-
   <div class="container">
+    <!-- Thông Báo Đăng Nhập -->
+
     <div class="login__form">
+      <?php if ($error): ?>
+        <div class="alert alert-danger">
+          <?= $error; ?>
+        </div>
+      <?php endif ?>
       <div class="row">
+
         <div class="col-sm-12 col-lg-6">
-          <form action="" method="POST" class="form" id="form-2">
-            <h3 class="heading">ĐĂNG NHẬP</h3>
-            <a href="" class="form__forgot-password">Bạn quên mật khẩu?</a>
+          <form action="index.php?act=login" method="POST" class="form" id="form-2" ">
+            <h3 class=" heading">ĐĂNG NHẬP</h3>
             <div class="form-group">
               <label for="email" class="form-label">Email</label>
               <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
@@ -27,7 +32,7 @@
               <!-- <i class="fi-rs-eye-crossed undisplay" onclick="showhide()"></i> -->
               <span class="form-message"></span>
             </div>
-            <button class="form-submit btn-blocker" style="border-radius: unset;">ĐĂNG NHẬP <i class="fas fa-arrow-right"
+            <button type="submit" class="form-submit btn-blocker" style="border-radius: unset;">ĐĂNG NHẬP <i class="fas fa-arrow-right"
                 style="font-size: 16px;margin-left: 10px;"></i></button>
             <h4>HOẶC</h4>
             <div class="form-social">
@@ -43,9 +48,6 @@
           </form>
         </div>
         <div class="col-sm-12 col-lg-6">
-          <h3 class="heading">TẠO MỘT TÀI KHOẢN</h3>
-          <p class="text-login">Thật dễ dàng tạo một tài khoản. Hãy nhập địa chỉ email của bạn và điền vào mẫu trên
-            trang tiếp theo và tận hưởng những lợi ích của việc sở hữu một tài khoản :</p>
           <ul>
             <li class="text-login-item"><i class="fas fa-check"></i>
               <p class="text-login">Tổng quan đơn giản về thông tin cá nhân của bạn</p>

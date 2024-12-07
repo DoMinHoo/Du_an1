@@ -255,20 +255,14 @@
             <ul class="header_link right m-auto">
               <?php if (isset($_SESSION['user'])) : ?>
                 <li>
-                  <a href="./Login.html"><i class="fas fa-sign-in-alt mr-3"></i>Thoát</a>
+                  <a href="index.php?act=logout"><i class="fas fa-sign-in-alt mr-3"></i>Đăng Xuất</a>
                 </li>
                 <li>
-                  <a href="?act=admin/user"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Thông tin</a>
+                  <a href="?act=admin/user"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i><?= $_SESSION['user']['full_name'] ?></a>
                 </li>
               <?php else : ?>
                 <li>
                   <a href="index.php?act=login"><i class="fas fa-sign-in-alt mr-3"></i>Đăng nhập</a>
-                </li>
-                <li>
-                  <a href="index.php?act=register"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Đăng kí</a>
-                </li>
-                <li>
-                  <a href="?act=admin/user"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i>Thông tin</a>
                 </li>
               <?php endif ?>
             </ul>
@@ -301,17 +295,17 @@
             <div id="trigger-mobile" class="visible-sm visible-xs"><i class="fas fa-bars"></i></div>
             <div class="logo">
               <a href="">
-                <img src="./views/user/assets/img/logo/logomain.png" alt="">
+                <img src="./views/user/assets/img/logo/logomain.png" alt="index.php">
               </a>
             </div>
             <div class="mobile_cart visible-sm visible-xs">
               <a href="./cart.html" class="header__second__cart--icon">
                 <i class="fas fa-shopping-cart"></i>
-                <span id="header__second__cart--notice" class="header__second__cart--notice">3</span>
+                <span id="header__second__cart--notice" class="header__second__cart--notice">8</span>
               </a>
               <a href="./listlike.html" class="header__second__like--icon">
                 <i class="far fa-heart"></i>
-                <span id="header__second__like--notice" class="header__second__like--notice">3</span>
+                <span id="header__second__like--notice" class="header__second__like--notice">5</span>
               </a>
             </div>
           </div>
@@ -323,9 +317,9 @@
           </div>
           <div class="col-3 m-auto hidden-sm hidden-xs">
             <div class="item-car clearfix">
-              <a href="./cart.html" class="header__second__cart--icon">
+              <a href="index.php?act=view-cart" class="header__second__cart--icon">
                 <i class="fas fa-shopping-cart"></i>
-                <span id="header__second__cart--notice" class="header__second__cart--notice">3</span>
+                <span id="header__second__cart--notice" class="header__second__cart--notice"><?= $_SESSION['totalQuantity'] ?? '' ?></span>
               </a>
             </div>
             <div class="item-like clearfix">

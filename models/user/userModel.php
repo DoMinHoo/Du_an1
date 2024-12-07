@@ -14,6 +14,7 @@ class UserModel
         $this->db->getAll($sql);
     }
 
+
     public function find($id)
     {
         $sql = "SELECT * FROM account WHERE id=$id";
@@ -22,9 +23,9 @@ class UserModel
 
     public function findUserOfEmail($email)
     {
-        $sql = "SELECT * FROM account WHERE email=$email";
+        $sql = "SELECT * FROM account WHERE email='$email'";
 
-        $this->db->getOne($sql);
+        return $this->db->getOne($sql);
     }
 
     public function create($user, $password, $email, $address, $tel)
@@ -34,10 +35,10 @@ class UserModel
         $this->db->insert($sql);
     }
 
-    public function update($id, $user, $address, $tel, $role)
+    public function update($id, $user, $address, $tel, $role, $active)
     {
         $sql = "UPDATE `account` SET `user`='$user',`address`='$address',`tel`='$tel',
-        ,`role`='$role' WHERE id=$id ";
+        ,`role`='$role',`active`='$active' WHERE id=$id ";
         return $this->db->insert($sql);
     }
 }

@@ -10,11 +10,11 @@
   <div class="product">
     <div class="container">
       <div class="product__sale">
-        <h3 class="product__sale title-product"><?= $category_name ?></h3>
+
         <div class="row">
           <?php foreach ($products as $product) : ?>
             <div class="col-lg-3 col-md-6 col-sm-12 mb-20">
-              <a href="./ProductDetail.html" class="product__new-item">
+              <a href="index.php?act=detail&id=<?= $product['id'] ?>" class="product__new-item">
                 <div class="card" style="width: 100%">
                   <div>
                     <img class="card-img-top" src="<?= 'uploads/' . $product['img'] ?>" alt="Card image cap">

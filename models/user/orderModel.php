@@ -21,13 +21,13 @@ class OrderModel
         return $this->db->insert($sql);
     }
 
-    public function create($user_id, $status, $payment, $total_money)
+    public function create($fullname, $email, $phone, $address, $status, $payment, $total_money)
     {
-        $sql = "INSERT INTO orders(user_id, status, payment, total_money)
-        VALUES($user_id, $status, $payment, $total_money)";
-        return $this->db->insert($sql);
+        $sql = "INSERT INTO orders(`fullname`, `email`, `phone`, `address` , `status`, `payment`, `total_money`)
+        VALUES('$fullname', '$email', '$phone', '$address' , '$status', '$payment', '$total_money')";
+        $this->db->insert($sql);
 
-        //  $this->db->lastInsertId($sql);
+        return $this->db->conn->lastInsertId();
     }
 
     public function updateStatus($id, $status)
@@ -36,10 +36,10 @@ class OrderModel
         return $this->db->insert($sql);
     }
 
-    public function createOrderDetail($order_id, $id_pro, $quantity, $money)
+    public function createOrderDetail($order_id, $id_pro, $quantity, $price)
     {
-        $sql = "INSERT INTO order_detail(order_id, id_pro, quantity ,money)
-        VALUES ($order_id, $id_pro, $quantity ,$money)";
+        $sql = "INSERT INTO order_detail(order_id, id_pro, quantity ,price)
+        VALUES ($order_id, $id_pro, $quantity ,$price)";
         return $this->db->insert($sql);
     }
 }

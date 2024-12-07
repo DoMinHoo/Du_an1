@@ -5,11 +5,13 @@ class HomeUserController
 
     public $product;
     public $category;
+    public $cart;
 
     public function __construct()
     {
         $this->product = new productHomeModel();
         $this->category = new AdminCategoryModels();
+        $this->cart = new CartController();
     }
     public function homeUser()
     {
@@ -38,7 +40,7 @@ class HomeUserController
         $id = $_GET['id'];
         $products = $this->product->getProductsInCategory($id);
 
-        $category_name = $this->product->getOneProduct($id)['cate_name'];
+        $category_name = $this->product->getOneProduct($id);
 
         $title = $category_name;
         $categories = $this->category->getAllCategory();
@@ -61,6 +63,8 @@ class HomeUserController
 
         //lưu thông tin uri
         $_SESSION['URI'] = $_SERVER['REQUEST_URI'];
+        // Tính Tổng Quantity
+        $_SESSION['totalQuantity'] = $this->cart->totalSumQuantity();
         require_once './views/user/detail/detail.php';
     }
 
@@ -72,9 +76,5 @@ class HomeUserController
     public function homeNew()
     {
         require_once './views/user/news/news.php';
-    }
-    public function homeLogin()
-    {
-        require_once './views/user/loginAndRegister/login.php';
     }
 }

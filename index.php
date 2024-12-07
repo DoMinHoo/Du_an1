@@ -1,16 +1,20 @@
 <?php
-
+session_start();
 // Require file Common
 require_once './commons/env.php';
 require_once './commons/database.php';
 //user
-//controller
-require_once './controllers/user/userController.php';
-require_once './controllers/user/userAccountController.php';
-require_once './controllers/user/cartController.php';
 //models
 require_once './models/user/productHomeModel.php';
 require_once './models/user/userModel.php';
+
+//models
+require_once './models/admin/userModels.php';
+require_once './models/admin/donHangModel.php';
+require_once './models/admin/productModel.php';
+require_once './models/admin/commentMode.php';
+require_once './models/admin/categoriesMode.php';
+require_once './models/user/orderModel.php';
 
 
 
@@ -22,12 +26,15 @@ require_once './controllers/admin/productController.php';
 require_once './controllers/admin/commentController.php';
 require_once './controllers/admin/categoriesController.php';
 
-//models
-require_once './models/admin/userModels.php';
-require_once './models/admin/donHangModel.php';
-require_once './models/admin/productModel.php';
-require_once './models/admin/commentMode.php';
-require_once './models/admin/categoriesMode.php';
+
+
+
+//controller
+require_once './controllers/user/userController.php';
+require_once './controllers/user/userAccountController.php';
+require_once './controllers/user/cartController.php';
+
+
 
 
 
@@ -54,11 +61,17 @@ $response = match ($act) {
     'trangchu' => $User->homeUser(),
     'intro' => $User->homeIntro(),
     'news' => $User->homeNew(),
-    'login' => $User->homeLogin(),
+    'login' => $UserAccount->login(),
+    'logout' => $UserAccount->logout(),
     'category' => $User->homeProduct(),
     'detail' => $User->productDetail(),
     'register' => $UserAccount->register(),
     'add-cart' => $UserCart->addToCart(),
+    'view-cart' => $UserCart->viewCart(),
+    'delete-cart' => $UserCart->deleteProductInCart(),
+    // 'update-cart' => $UserCart->updateCart(),
+    'view-checkout' => $UserCart->viewCheckOut(),
+    'check-out' => $UserCart->checkOut(),
 
     // Quản trị viên
     'admin/user' => $Admin->UserAdmin(),

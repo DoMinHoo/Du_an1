@@ -92,3 +92,4 @@
     <p class="footer__text">© GROUP-8 </p>
   </div>
 </footer>
+<script src="./js/main.js"></script>
