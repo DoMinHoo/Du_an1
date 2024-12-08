@@ -71,7 +71,7 @@ class CartController
         $carts = $_SESSION['cart'] ?? [];
         $total = 0;
         foreach ($carts as $cart) {
-            $total = $cart['quantity'] * $cart['price'];
+            $total += $cart['quantity'] * $cart['price'];
         }
         return $total;
     }
@@ -137,9 +137,19 @@ class CartController
             foreach ($carts as $id_pro => $cart) {
                 (new OrderModel())->createOrderDetail($order_id, $id_pro, $cart['quantity'], $cart['price']);
             }
-            echo "Thêm đơn hàng thành công";
+            // Xóa Thông Tin Giỏ Hàng
+            $this->clearCart();
+
+            require_once './views/user/cart/success.php';
         } else {
             echo "Bạn Cần Nhập Đầy Đủ Thông Tin";
         }
+    }
+
+    public function clearCart()
+    {
+        unset($_SESSION['cart']);
+        unset($_SESSION['totalQuantity']);
+        unset($_SESSION['URI']);
     }
 }

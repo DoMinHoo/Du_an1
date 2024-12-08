@@ -319,7 +319,7 @@
             <div class="item-car clearfix">
               <a href="index.php?act=view-cart" class="header__second__cart--icon">
                 <i class="fas fa-shopping-cart"></i>
-                <span id="header__second__cart--notice" class="header__second__cart--notice"><?= $_SESSION['totalQuantity'] ?? '' ?></span>
+                <span id="header__second__cart--notice" class="header__second__cart--notice"><?= $_SESSION['totalQuantity'] ?? '0' ?></span>
               </a>
             </div>
             <div class="item-like clearfix">
