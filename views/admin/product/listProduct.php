@@ -56,7 +56,7 @@
                                                 <td><?= $value['name'] ?></td>
                                                 <td><?= $value['price'] ?></td>
                                                 <td><?= $value['quantity'] ?></td>
-                                                <td><img src="<?= 'uploads/' . $value['img'] ?>" style="width:200px; margin:10px;"></td>
+                                                <td><img src="<?= 'uploads/' . $value['img'] ?>" style="width:100px; margin:10px;"></td>
                                                 <td><?= $value['description'] ?></td>
                                                 <td><?= $value['cate_name'] ?></td>
                                                 <td><?= $value['status'] == 0 ? 'Hoạt Động' : 'Không Hoạt Động'; ?> </td>

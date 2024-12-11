@@ -50,8 +50,8 @@
                             <input type="text" class="form-control" name="total_money" value="<?php echo $edit['total_money'] ?>" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="create_at">Create At</label>
-                            <input type="text" class="form-control" name="create_at" value="<?php echo $edit['created_at'] ?>" readonly>
+                            <label for="created_at">Create At</label>
+                            <input type="text" class="form-control" name="created_at" value="<?php echo $edit['created_at'] ?>" readonly>
                         </div>
                         <div class="form-group">
                             <label for="update_at">Update At</label>

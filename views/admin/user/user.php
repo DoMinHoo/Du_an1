@@ -29,11 +29,11 @@
           <div class="card">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Danh sách thành viên</h3>
+                <h3 class="card-title">Danh sách Tài Khoản</h3>
               </div>
               <!--/.card-header -->
               <div class="card-body">
-                <a class="btn btn-success mb-2" href="?act=admin/user/add" data-toggle="modal" data-target="#addModal">Add Thành viên</a>
+                <a class="btn btn-success mb-2" href="?act=admin/user/add" data-toggle="modal" data-target="#addModal">Add Tài Khoản</a>
                 <h4 class="text-danger mt-2 mb-2" id="notification" class="notification"></h4>
 
                 <table id="example1" class="table table-bordered table-striped">

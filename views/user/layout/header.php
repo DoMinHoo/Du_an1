@@ -258,7 +258,7 @@
                   <a href="index.php?act=logout"><i class="fas fa-sign-in-alt mr-3"></i>Đăng Xuất</a>
                 </li>
                 <li>
-                  <a href="?act=admin/user"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i><?= $_SESSION['user']['full_name'] ?></a>
+                  <a href="?act=admin/user"><i class="fas fa-user-plus mr-3" style="margin-left: 10px;"></i> </a>
                 </li>
               <?php else : ?>
                 <li>

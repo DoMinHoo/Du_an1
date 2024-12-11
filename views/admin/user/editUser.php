@@ -14,7 +14,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Trang chỉnh sửa thành viên: <?php echo $dataOneUser['user']; ?> </h1>
+          <h1>Trang chỉnh sửa tài khoản: <?php echo $dataOneUser['user']; ?> </h1>
         </div>
       </div>
     </div><!-- /.container-fluid -->
@@ -33,7 +33,7 @@
             <div class="form-group">
               <label for="password">Password</label>
               <input type="password" class="form-control" name="password"
-                value="<?php echo $dataOneUser['password']; ?>">
+                value="<?php echo $dataOneUser['password']; ?> " readonly>
             </div>
             <div class="form-group">
               <label for="email">Email</label>
@@ -58,8 +58,8 @@
             <div class="form-group">
               <label for="">status</label>
               <select class="form-control" name="status">
-              <option value="0" <?php echo $dataOneUser['status'] == 0 ? 'selected' : ''; ?> >active</option>
-              <option value="1" <?php echo $dataOneUser['status'] == 1 ? 'selected' : '';?> >locked</option>
+                <option value="0" <?php echo $dataOneUser['status'] == 0 ? 'selected' : ''; ?>>active</option>
+                <option value="1" <?php echo $dataOneUser['status'] == 1 ? 'selected' : ''; ?>>locked</option>
               </select>
             </div>
 
@@ -81,9 +81,11 @@
 <?php include_once './views/admin/layout/footer.php'; ?>
 
 <script>
-  $(function () {
+  $(function() {
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "responsive": true,
+      "lengthChange": false,
+      "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({

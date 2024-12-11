@@ -82,11 +82,16 @@ class ProductController
             $id = $_GET['id'];
             $name = $_POST['name'];
             $price = $_POST['price'];
-            $quantity = $_POST['quantity'];
+            $quantity = isset($_POST['quantity']) ? $_POST['quantity'] : null;
             $img = $_POST['img'];
             $description = $_POST['description'];
             $id_categories = $_POST['id_categories'];
             $status = $_POST['status'];
+
+            // Kiểm tra lỗi
+            if (empty($quantity) || !is_numeric($quantity)) {
+                $error[] = 'Số lượng không hợp lệ.';
+            }
             if (empty($error)) {
                 $this->product->editProduct(
                     $id,
